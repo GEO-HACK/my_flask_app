@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily Tasks</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <nav>
-        <ul>
-            <li><a href="{{ url_for('main.home') }}">Home</a></li>
-            <li><a href="{{ url_for('main.dailytask') }}">Daily Tasks</a></li>
-        </ul>
+      <ul>
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+        <li><a href="{{ url_for('main.dailytask') }}">Daily Tasks</a></li>
+      </ul>
     </nav>
-    
+
     <div class="container">
-        <h1>Daily Tasks</h1>
-        
-        <!-- Add Task Form -->
-        <form action="{{ url_for('main.dailytask') }}" method="post" class="task-form">
-            
-            <input type="text" id="task" name="task" required>
-            <button type="submit">Add Task</button>
-        </form>
-        
-        <!-- Display Tasks -->
-        {% if tasks %}
-            <div class="task-list">
-            {% for task in tasks %}
-                
-                    <div class="task-item">
-                        <form action= "{{ url_for('main.complete_task', task_id=task.id)}}"
-                                method="get" class="text-inline">
-                               <input type="checkbox" name="completed" class="custom-checkbox" onChange="this.form.submit()" {% if task.completed %} checked {% endif %}>
+      <h1>Daily Tasks</h1>
 
-                        </form>
+      <!-- Add Task Form -->
+      <form
+        action="{{ url_for('main.dailytask') }}"
+        method="post"
+        class="task-form"
+      >
+        <input type="text" id="task" name="task" required />
+        <button type="submit">Add Task</button>
+      </form>
 
-                    <span class="{% if task.completed %}completed{% endif %}">
-                        {{ task.text }}
-                    </span>
-                
-                    <a href="{{ url_for('main.delete_task', task_id=task.id) }}">X</a>
-                </div>
-            {% endfor %}
-            </div>
-        {% else %}
-            <p>No tasks yet. Add one above!</p>,
-        {% endif %}
+      <!-- Display Tasks -->
+      {% if tasks %}
+      <div class="task-list">
+        {% for task in tasks %}
+
+        <div class="task-item">
+          <form
+            action="{{ url_for('main.complete_task', task_id=task.id)}}"
+            method="get"
+            class="text-inline"
+          >
+            <input
+              type="checkbox"
+              name="completed"
+              class="custom-checkbox"
+              onChange="this.form.submit()"
+              {%
+              if
+              task.completed
+              %}
+              checked
+              {%
+              endif
+              %}
+            />
+          </form>
+
+          <span class="{% if task.completed %}completed{% endif %}">
+            {{ task.text }}
+          </span>
+
+          <a href="{{ url_for('main.delete_task', task_id=task.id) }}">
+            <i class="fa-solid fa-trash"></i>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>No tasks yet. Add one above!</p>
+      , {% endif %}
     </div>
-
-</body>
+  </body>
 </html>
