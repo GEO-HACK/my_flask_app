@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Daily Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Add Daily Task</h1>
+    <form action="{{ url_for('main.dailytask') }}" method="post">
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

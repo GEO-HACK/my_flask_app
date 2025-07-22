@@ -1,0 +1,40 @@
+{
+    "daily_tasks": [
+        { 
+            "id":1,
+            "title":"Review code changes",
+            "description":"Review the latest pull requests and provide feedback.",
+            "completed": false,
+            "created_at": "2023-10-01T09:00:00Z",
+
+        },
+        { 
+            "id":2,
+            "title":"Update project documentation",
+            "description":"Ensure all recent changes are reflected in the project documentation.",
+            "completed": false,
+            "created_at": "2023-10-01T10:00:00Z",
+        },
+        { 
+            "id":3,
+            "title":"Attend team meeting",
+            "description":"Participate in the weekly team sync-up to discuss project progress.",
+            "completed": false,
+            "created_at": "2023-10-01T11:00:00Z",
+        },
+        { 
+            "id":4,
+            "title":"Test new features",
+            "description":"Run tests on the newly implemented features to ensure functionality.",
+            "completed": false,
+            "created_at": "2023-10-01T12:00:00Z",
+        },
+        { 
+            "id":5,
+            "title":"Plan next sprint",
+            "description":"Outline tasks and goals for the upcoming sprint based on current progress.",
+            "completed": false,
+            "created_at": "2023-10-01T13:00:00Z",
+        }
+    ]
+}
