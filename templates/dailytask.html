@@ -3,16 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Daily Task</title>
+    <title>Daily Tasks</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Add Daily Task</h1>
-    <form action="{{ url_for('main.dailytask') }}" method="post">
-        <label for="task">Task:</label>
-        <input type="text" id="task" name="task" required>
-        <button type="submit">Add Task</button>
-    </form>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('main.home') }}">Home</a></li>
+            <li><a href="{{ url_for('main.dailytask') }}">Daily Tasks</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Daily Tasks</h1>
+        
+        <!-- Add Task Form -->
+        <form action="{{ url_for('main.dailytask') }}" method="post">
+            <label for="task">New Task:</label>
+            <input type="text" id="task" name="task" required>
+            <button type="submit">Add Task</button>
+        </form>
+        
+        <!-- Display Tasks -->
+        <h2>Your Tasks</h2>
+        {% if tasks %}
+            <div>
+            {% for task in tasks %}
+                <div>
+                    <div class="task-item">
+                    <span class="{% if task.completed %}completed{% endif %}">
+                        {{ task.text }}
+                    </span>
+                    <a href="{{ url_for('main.complete_task', task_id=task.id) }}">
+                        {% if task.completed %}Undo{% else %}Complete{% endif %}
+                    </a>
+                    <a href="{{ url_for('main.delete_task', task_id=task.id) }}">Delete</a>
+                </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            <p>No tasks yet. Add one above!</p>
+        {% endif %}
+    </div>
+
 </body>
 </html>
