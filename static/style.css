@@ -56,15 +56,14 @@ nav ul {
     gap: 20px;  
 }
 .task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    
+
     padding: 10px;
     border-bottom: 1px solid #ddd;
     
     background-color: white;
     border-radius: 20px;
-    box-sizing: border-box;
+
     margin-bottom: 2px;
 
 

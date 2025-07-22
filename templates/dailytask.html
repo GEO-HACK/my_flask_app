@@ -31,12 +31,9 @@
                 
                     <div class="task-item">
                         <form action= "{{ url_for('main.complete_task', task_id=task.id)}}"
-                                method="post" class="text-inline">
-                                <input type="checkbox"
-                                        name="completed"
-                                        class="custom-checkbox"
-                                        onChange="this.form.submit()"
-                                        {% if task.completed %} checked {% endif %}>
+                                method="get" class="text-inline">
+                               <input type="checkbox" name="completed" class="custom-checkbox" onChange="this.form.submit()" {% if task.completed %} checked {% endif %}>
+
                         </form>
 
                     <span class="{% if task.completed %}completed{% endif %}">
@@ -48,7 +45,7 @@
             {% endfor %}
             </div>
         {% else %}
-            <p>No tasks yet. Add one above!</p>
+            <p>No tasks yet. Add one above!</p>,
         {% endif %}
     </div>
 

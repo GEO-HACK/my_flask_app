@@ -32,6 +32,6 @@ def delete_task(task_id):
 
 @main_bp.route('/complete_task/<int:task_id>')
 def complete_task(task_id):
-    """Toggle task completion"""
+    
     task_manager.complete_task(task_id, 'daily')
     return redirect(url_for('main.dailytask'))
