@@ -18,26 +18,32 @@
         <h1>Daily Tasks</h1>
         
         <!-- Add Task Form -->
-        <form action="{{ url_for('main.dailytask') }}" method="post">
-            <label for="task">New Task:</label>
+        <form action="{{ url_for('main.dailytask') }}" method="post" class="task-form">
+            
             <input type="text" id="task" name="task" required>
             <button type="submit">Add Task</button>
         </form>
         
         <!-- Display Tasks -->
-        <h2>Your Tasks</h2>
         {% if tasks %}
-            <div>
+            <div class="task-list">
             {% for task in tasks %}
-                <div>
+                
                     <div class="task-item">
+                        <form action= "{{ url_for('main.complete_task', task_id=task.id)}}"
+                                method="post" class="text-inline">
+                                <input type="checkbox"
+                                        name="completed"
+                                        class="custom-checkbox"
+                                        onChange="this.form.submit()"
+                                        {% if task.completed %} checked {% endif %}>
+                        </form>
+
                     <span class="{% if task.completed %}completed{% endif %}">
                         {{ task.text }}
                     </span>
-                    <a href="{{ url_for('main.complete_task', task_id=task.id) }}">
-                        {% if task.completed %}Undo{% else %}Complete{% endif %}
-                    </a>
-                    <a href="{{ url_for('main.delete_task', task_id=task.id) }}">Delete</a>
+                
+                    <a href="{{ url_for('main.delete_task', task_id=task.id) }}">X</a>
                 </div>
             {% endfor %}
             </div>

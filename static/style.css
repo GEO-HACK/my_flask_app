@@ -4,6 +4,11 @@ h1{
     text-align: center;
 
 }
+a{
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
 p {
     font-size: 1.2em;
     color: #555;
@@ -42,7 +47,7 @@ nav ul {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #dbd5d5;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -56,4 +61,72 @@ nav ul {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+
+
+
+}
+.task-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.task-form input[type="text"] {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width:70%;
+}
+.task-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.task-form button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    border-radius: 50%; /* Makes it round */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-checkbox:checked {
+    background-color: #4caf50; /* Green when checked */
+    border-color: #4caf50;
+}
+
+.custom-checkbox::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    display: none;
+}
+
+.custom-checkbox:checked::after {
+    display: block;
 }

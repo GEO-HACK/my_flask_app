@@ -1,5 +1,24 @@
 {
-    "daily_tasks": [],
+    "daily_tasks": [
+        {
+            "id": 1,
+            "text": "opinionated descriptions",
+            "created_at": "2025-07-22T22:53:57.308178",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "text": "djhjdfnsdf",
+            "created_at": "2025-07-22T23:21:45.744484",
+            "completed": false
+        },
+        {
+            "id": 3,
+            "text": "sfdnsdf",
+            "created_at": "2025-07-22T23:22:07.576795",
+            "completed": false
+        }
+    ],
     "weekly_tasks": [],
     "monthly_tasks": []
 }
